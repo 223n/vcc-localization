@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vcc-ja-dev",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["--env-file-if-exists=.env", "tools/dev-server.mjs"],
+      "port": 5480
+    }
+  ]
+}

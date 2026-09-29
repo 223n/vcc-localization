@@ -1,0 +1,34 @@
+VCC日本語化パッチ（非公式）
+Copyright (c) 2026 223n <223n@223n.tech>
+
+このプロジェクトは、VRChat Inc.とは関係のない非公式のものです。
+VRChat Inc.による承認や保証は受けていません。
+「VRChat」はVRChat Inc.の商標です。
+VRChat Creator CompanionはVRChat Inc.の製品です。
+
+MITライセンス（LICENSE）の対象は、このプロジェクトの著作者が作成したコードと日本語訳です。
+locales/ja.jsonに含まれる英語の文字列（exactのキーと、patternsの正規表現に含まれる英文）は対象外です。
+これらはVRChat Creator Companionから抜き出したもので、権利はVRChat Inc.に帰属します。
+画面に表示される文字列と照合するためのキーとしてのみ収録しています。
+
+このリポジトリには、VRChat Creator Companionのファイルは含まれていません。
+パッチを当てたVRChat Creator Companionのファイルは配布しないでください。
+
+----------------------------------------------------------------------
+
+VCC Japanese Localization Patch (Unofficial)
+Copyright (c) 2026 223n <223n@223n.tech>
+
+This project is unofficial and is not affiliated with, endorsed by, or
+sponsored by VRChat Inc. "VRChat" is a trademark of VRChat Inc.
+VRChat Creator Companion is a product of VRChat Inc.
+
+The MIT License in LICENSE applies only to the code and the Japanese
+translations created by the author of this project. The English source strings
+in locales/ja.json (the keys of "exact" and the English text in the "patterns"
+regular expressions) were taken from VRChat Creator Companion and remain the
+property of VRChat Inc. They are included solely as lookup keys to match the
+text displayed in the application, and are not licensed under the MIT License.
+
+This repository does not contain any files of VRChat Creator Companion.
+Do not redistribute VRChat Creator Companion files patched with this project.

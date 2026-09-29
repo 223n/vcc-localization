@@ -1,0 +1,6 @@
+# 抽出結果や動作確認用の生成物（VCCのコード片を含むので公開しない）
+work/
+
+# ローカルの環境設定
+.env
+.claude/settings.local.json

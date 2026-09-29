@@ -1,0 +1,960 @@
+{
+  "version": "0.1.0",
+  "target": "VRChat Creator Companion 2.4.5",
+  "skip": ".fui-MessageBarGroup",
+  "sections": [
+    {
+      "name": "共通",
+      "exact": {
+        "Cancel": "キャンセル",
+        "Close": "閉じる",
+        "Confirm": "確定",
+        "Continue": "続行",
+        "Back": "戻る",
+        "Add": "追加",
+        "Remove": "削除",
+        "Dismiss": "閉じる",
+        "Hide": "隠す",
+        "No": "いいえ",
+        "Try again": "再試行",
+        "Try Again": "再試行",
+        "Loading...": "読み込み中...",
+        "Checking...": "確認中...",
+        "Checking": "確認中",
+        "Learn more": "詳しく見る",
+        "Learn More": "詳しく見る",
+        "Learn  More": "詳しく見る",
+        "Install Now": "今すぐインストール",
+        "Recommended": "推奨",
+        "None": "なし",
+        "Unknown": "不明",
+        "Unknown error": "不明なエラー",
+        "File not found": "ファイルが見つかりません",
+        "Failed to load": "読み込みに失敗しました",
+        "Please do not close the VCC Application": "VCCを閉じないでください",
+        "Copied!": "コピーしました！"
+      },
+      "patterns": [
+        [
+          "^Copied (.+) to clipboard$",
+          "$1をクリップボードにコピーしました"
+        ],
+        [
+          "^Failed to open URL: (.*)$",
+          "URLを開けませんでした: $1"
+        ],
+        [
+          "^Failed to set open URL: (.*)$",
+          "URLを開けませんでした: $1"
+        ],
+        [
+          "^Failed to open a folder picker: (.*)$",
+          "フォルダーの選択画面を開けませんでした: $1"
+        ],
+        [
+          "^Failed to open a file picker: (.*)$",
+          "ファイルの選択画面を開けませんでした: $1"
+        ],
+        [
+          "^Failed to open file picker: (.*)$",
+          "ファイルの選択画面を開けませんでした: $1"
+        ],
+        [
+          "^Failed to pick a path: (.*)$",
+          "パスを選択できませんでした: $1"
+        ]
+      ]
+    },
+    {
+      "name": "サイドバー・ページ見出し",
+      "exact": {
+        "Projects": "プロジェクト",
+        "Learn": "学ぶ",
+        "Tools": "ツール",
+        "Logs": "ログ",
+        "Settings": "設定",
+        "Settings.": "設定",
+        "Update": "アップデート",
+        "Packages": "パッケージ",
+        "Templates": "テンプレート",
+        "Create, add, or manage your VRChat worlds and avatar projects.": "VRChatのワールドやアバターのプロジェクトを作成・追加・管理します。",
+        "Learn how to create VRChat worlds and avatars with the Creator Companion.": "Creator Companionを使ったVRChatのワールドやアバターの作り方を学べます。",
+        "See other official tools made by VRChat.": "VRChatが提供するその他の公式ツールを確認できます。",
+        "View errors and other information logged by the Creator Companion.": "Creator Companionが記録したエラーなどの情報を確認できます。",
+        "Change your settings, visual theme, selected Unity editor, and more.": "設定、表示テーマ、使用するUnityエディターなどを変更します。",
+        "Page Description": "ページの説明",
+        "Unity editor is not set!": "Unityエディターが設定されていません！",
+        "Open Logs": "ログを開く",
+        "Hide upgrade notification for this Unity Release. You will be able to select the new version in Settings.": "このUnityリリースのアップグレード通知を非表示にします。新しいバージョンはあとから設定で選択できます。",
+        "Set this version as default": "このバージョンをデフォルトに設定",
+        "Install this version": "このバージョンをインストール"
+      },
+      "patterns": [
+        [
+          "^VRChat has upgraded to Unity (\\S+)\\. Set this version as default to use all the latest features\\.$",
+          "VRChatはUnity $1にアップグレードしました。最新の機能をすべて使うには、このバージョンをデフォルトに設定してください。"
+        ],
+        [
+          "^VRChat has upgraded to Unity (\\S+)\\. Install this version to use all the latest features\\.$",
+          "VRChatはUnity $1にアップグレードしました。最新の機能をすべて使うには、このバージョンをインストールしてください。"
+        ],
+        [
+          "^Set Unity (.+) as default$",
+          "Unity $1をデフォルトに設定"
+        ],
+        [
+          "^Failed to update default editor: (.*)$",
+          "デフォルトのエディターを更新できませんでした: $1"
+        ],
+        [
+          "^Failed to change the default Editor: (.*)$",
+          "デフォルトのエディターを変更できませんでした: $1"
+        ],
+        [
+          "^Failed update VCC: (.*)$",
+          "VCCをアップデートできませんでした: $1"
+        ]
+      ]
+    },
+    {
+      "name": "プロジェクト一覧",
+      "exact": {
+        "Create New Project": "新規プロジェクトを作成",
+        "Add Existing Project": "既存のプロジェクトを追加",
+        "Refresh Projects": "プロジェクト一覧を更新",
+        "Search Projects...": "プロジェクトを検索...",
+        "Grid View": "グリッド表示",
+        "List View": "リスト表示",
+        "Sort By": "並べ替え",
+        "Sort Ascending": "昇順",
+        "Sort Descending": "降順",
+        "Last Opened": "最後に開いた日時",
+        "Favorite": "お気に入り",
+        "Unity Version": "Unityバージョン",
+        "Project Name": "プロジェクト名",
+        "Project Type": "種類",
+        "Name": "名前",
+        "Last Modified": "最終更新",
+        "Open Project": "開く",
+        "Opening...": "起動中...",
+        "Bring To Front": "前面に表示",
+        "Bring to Front": "前面に表示",
+        "Manage Project": "プロジェクトを管理",
+        "Open Project Folder": "プロジェクトのフォルダーを開く",
+        "Create Backup": "バックアップを作成",
+        "Make Backup": "バックアップを作成",
+        "Remove Project": "一覧から削除",
+        "Avatar": "アバター",
+        "World": "ワールド",
+        "Legacy": "旧形式",
+        "Upgrade SDK": "SDKをアップグレード",
+        "Change Unity Version": "Unityバージョンを変更",
+        "Unity Version Upgrade Available": "Unityバージョンのアップグレードがあります",
+        "Project is currently open in Unity": "このプロジェクトはUnityで開かれています",
+        "Project is opening...": "プロジェクトを開いています...",
+        "Unity Version used by this project is not installed": "このプロジェクトで使用するUnityバージョンがインストールされていません",
+        "Fix Now": "今すぐ修正",
+        "Path to a Unity Editor is not set, you will be unable to open projects.": "Unityエディターのパスが設定されていないため、プロジェクトを開けません。",
+        "This project needs migration to utilize the latest VRChat features": "VRChatの最新機能を使うには、このプロジェクトの移行が必要です",
+        "This is a legacy project. It needs an Upgrade to utilize the latest VRChat SDK features": "これは旧形式のプロジェクトです。VRChat SDKの最新機能を使うにはアップグレードが必要です",
+        "No valid projects selected": "有効なプロジェクトが選択されていません"
+      },
+      "patterns": [
+        [
+          "^This is a legacy (.+) project\\. It needs migration to utilize the latest VRChat features$",
+          "これは旧形式の$1プロジェクトです。VRChatの最新機能を使うには移行が必要です"
+        ],
+        [
+          "^Opening project: (.*)$",
+          "プロジェクトを開いています: $1"
+        ],
+        [
+          "^Bringing project to front: (.*)$",
+          "プロジェクトを前面に表示しています: $1"
+        ],
+        [
+          "^Failed to bring project to front: (.*)$",
+          "プロジェクトを前面に表示できませんでした: $1"
+        ],
+        [
+          "^Failed to add projects: (.*)$",
+          "プロジェクトを追加できませんでした: $1"
+        ],
+        [
+          "^Failed to add project: (.*)$",
+          "プロジェクトを追加できませんでした: $1"
+        ],
+        [
+          "^Failed to update default project path: (.*)$",
+          "プロジェクトの既定の保存先を更新できませんでした: $1"
+        ],
+        [
+          "^Failed to remove project: (.*)$",
+          "プロジェクトを一覧から削除できませんでした: $1"
+        ],
+        [
+          "^Project (.+) removed successfully$",
+          "プロジェクト$1を一覧から削除しました"
+        ]
+      ]
+    },
+    {
+      "name": "相対日時（dayjs）",
+      "exact": {
+        "a few seconds ago": "数秒前",
+        "a minute ago": "1分前",
+        "an hour ago": "1時間前",
+        "a day ago": "1日前",
+        "a month ago": "1か月前",
+        "a year ago": "1年前",
+        "in a few seconds": "数秒後",
+        "in a minute": "1分後",
+        "in an hour": "1時間後",
+        "in a day": "1日後",
+        "in a month": "1か月後",
+        "in a year": "1年後"
+      },
+      "patterns": [
+        [
+          "^(\\d+) minutes ago$",
+          "$1分前"
+        ],
+        [
+          "^(\\d+) hours ago$",
+          "$1時間前"
+        ],
+        [
+          "^(\\d+) days ago$",
+          "$1日前"
+        ],
+        [
+          "^(\\d+) months ago$",
+          "$1か月前"
+        ],
+        [
+          "^(\\d+) years ago$",
+          "$1年前"
+        ],
+        [
+          "^in (\\d+) minutes$",
+          "$1分後"
+        ],
+        [
+          "^in (\\d+) hours$",
+          "$1時間後"
+        ],
+        [
+          "^in (\\d+) days$",
+          "$1日後"
+        ],
+        [
+          "^in (\\d+) months$",
+          "$1か月後"
+        ],
+        [
+          "^in (\\d+) years$",
+          "$1年後"
+        ]
+      ]
+    },
+    {
+      "name": "新規プロジェクト作成",
+      "exact": {
+        "New Project": "新規プロジェクト",
+        "Select template": "テンプレートを選択",
+        "Configure Project": "プロジェクトの設定",
+        "E.g. MyNewProject": "例: MyNewProject",
+        "Project Location": "プロジェクトの場所",
+        "E.g. C:/Users/myUser/UnityProjects": "例: C:/Users/myUser/UnityProjects",
+        "Pick New Folder": "フォルダーを選択",
+        "Final project location:": "作成先:",
+        "Select a template, project name, and a location to create a new project": "新しいプロジェクトを作成するには、テンプレート、プロジェクト名、場所を指定してください",
+        "Create Project": "プロジェクトを作成",
+        "Unity 2022 World Project": "Unity 2022ワールドプロジェクト",
+        "Unity 2022 Avatar Project": "Unity 2022アバタープロジェクト",
+        "Unity 2019 World Project": "Unity 2019ワールドプロジェクト",
+        "Unity 2019 Avatar Project": "Unity 2019アバタープロジェクト",
+        "Starting project creation...": "プロジェクトの作成を開始しています...",
+        "Failed to start project creation, no template selected": "テンプレートが選択されていないため、プロジェクトの作成を開始できませんでした",
+        "No valid path selected": "有効なパスが選択されていません"
+      },
+      "patterns": [
+        [
+          "^Creating (.+)$",
+          "$1を作成中"
+        ],
+        [
+          "^Failed to set new projects folder: (.*)$",
+          "プロジェクトの保存先を設定できませんでした: $1"
+        ],
+        [
+          "^Set the project location to (.*)$",
+          "プロジェクトの保存先を$1に設定しました"
+        ]
+      ]
+    },
+    {
+      "name": "テンプレート（VCC 同梱データ）",
+      "exact": {
+        "A good starting point for a new VRChat World": "新しいVRChatワールドを作り始めるためのテンプレートです",
+        "A good starting point for a new VRChat Avatar": "新しいVRChatアバターを作り始めるためのテンプレートです"
+      },
+      "patterns": []
+    },
+    {
+      "name": "学ぶ",
+      "exact": {
+        "Click on the cards below to learn more about a particular topic": "下のカードをクリックすると、各トピックの詳細を確認できます",
+        "Search the VRChat docs": "VRChatのドキュメントを検索",
+        "The Creator Companion": "Creator Companion",
+        "(This application)": "（このアプリケーション）",
+        "This tool helps you set up everything you need to create things in VRChat!": "VRChatでのコンテンツ制作に必要な環境をまとめて準備できるツールです！",
+        "Udon is a language custom-built to power logic and interactivity in VRChat Worlds.": "Udonは、VRChatワールドの処理やインタラクションを実現するために作られた言語です。",
+        "Worlds": "ワールド",
+        "Create your first World for VRChat using Unity and the SDK.": "UnityとSDKを使って、はじめてのVRChatワールドを作りましょう。",
+        "Avatars": "アバター",
+        "Create your first Avatar for VRChat using Unity and the SDK.": "UnityとSDKを使って、はじめてのVRChatアバターを作りましょう。",
+        "Forums": "フォーラム",
+        "Our forums are a place to search for info, ask questions, and find out about cool things other people are making.": "フォーラムでは、情報を探したり、質問したり、ほかのクリエイターの作品を見つけたりできます。",
+        "Talk to fellow VRChat creators on our official Discord server.": "公式Discordサーバーで、ほかのVRChatクリエイターと交流できます。",
+        "Engine Upgrade": "エンジンのアップグレード",
+        "Learn how to upgrade projects from Unity 2019 to Unity 2022.": "プロジェクトをUnity 2019からUnity 2022へアップグレードする方法を学べます。",
+        "Search docs": "ドキュメントを検索",
+        "Search": "検索",
+        "to select": "選択",
+        "to navigate": "移動",
+        "to close": "閉じる",
+        "Enter key": "Enterキー",
+        "Arrow up": "上矢印キー",
+        "Arrow down": "下矢印キー",
+        "Escape key": "Escキー",
+        "No results for": "該当する結果がありません:",
+        "Try searching for": "次のキーワードで検索してみてください:",
+        "Believe this query should return results?": "この検索で結果が出るはずだと思いますか？",
+        "Let us know.": "お知らせください。",
+        "Recent": "最近の検索",
+        "No recent searches": "最近の検索はありません",
+        "Save this search": "この検索を保存",
+        "Remove this search from history": "この検索を履歴から削除",
+        "Remove this search from favorites": "この検索をお気に入りから削除",
+        "Clear the query": "検索語をクリア",
+        "Unable to fetch results": "結果を取得できませんでした",
+        "You might want to check your network connection.": "ネットワーク接続を確認してください。"
+      },
+      "patterns": []
+    },
+    {
+      "name": "ツール",
+      "exact": {
+        "These are external applications that can be help you create and test your VRChat content": "VRChatコンテンツの制作やテストに役立つ外部アプリケーションです",
+        "This tool helps you launch multiple profiles in the same VRChat instance, while also providing an interface to modify the debug options.": "同じVRChatインスタンスに複数のプロファイルで入ったり、デバッグオプションを変更したりできるツールです。",
+        "Launch": "起動"
+      },
+      "patterns": [
+        [
+          "^Failed to launch tool: (.*)$",
+          "ツールを起動できませんでした: $1"
+        ]
+      ]
+    },
+    {
+      "name": "プロジェクト管理（パッケージ）",
+      "exact": {
+        "Back To Projects": "プロジェクト一覧に戻る",
+        "Located At:": "場所:",
+        "Unity version": "Unityバージョン",
+        "Manage Packages": "パッケージを管理",
+        "Refresh Packages": "パッケージ一覧を更新",
+        "More Actions": "その他の操作",
+        "Reinstall All Packages": "すべてのパッケージを再インストール",
+        "Reinstall all Packages": "すべてのパッケージを再インストール",
+        "Search Packages...": "パッケージを検索...",
+        "Installed Version": "インストール済み",
+        "Latest Version": "最新バージョン",
+        "Not Installed": "未インストール",
+        "Update to Latest": "最新版に更新",
+        "Remove Package": "パッケージを削除",
+        "Add Package": "パッケージを追加",
+        "This package does not exists in your selected repos, you will not be able to reinstall it": "このパッケージは選択中のリポジトリにないため、再インストールできません",
+        "This package is required and cannot be removed": "このパッケージは必須のため削除できません",
+        "Selected Repos": "選択中のリポジトリ",
+        "New Repositories Added": "新しいリポジトリが追加されました",
+        "Built-In Repositories": "組み込みリポジトリ",
+        "Community Repositories": "コミュニティリポジトリ",
+        "Multiple Repositories": "複数のリポジトリ",
+        "VCC is currently resolving packages for another project. Project Resolve is unavailable until that process is complete": "VCCは別のプロジェクトのパッケージを解決中です。その処理が終わるまで解決できません",
+        "Some of the dependencies are not installed. Click to resolve packages": "一部の依存パッケージがインストールされていません。クリックして解決します",
+        "Cannot add package to an undefined project": "プロジェクトが特定できないため、パッケージを追加できません",
+        "Incompatible Package": "互換性のないパッケージ",
+        "You are trying to downgrade": "",
+        "to a version that no longer supports": "を、プロジェクトで使用中の",
+        "used by your project, this will cause issues and is not supported.": "に対応していないバージョンへダウングレードしようとしています。問題が発生するため、この操作はサポートされていません。",
+        "You are adding": "追加:",
+        "You are upgrading": "アップグレード:",
+        "You are downgrading": "ダウングレード:",
+        "You are removing": "削除:",
+        "with": "",
+        "to": "→",
+        "from": "",
+        "version": "",
+        "This will also change the following packages:": "以下のパッケージも変更されます:",
+        "will be removed": "が削除されます",
+        "will be added": "が追加されます",
+        "We also found packages that might have version conflicts:": "バージョンが競合する可能性のあるパッケージも見つかりました:",
+        "They might still work just fine, but it is recommended to check for updates!": "そのままでも動作する場合がありますが、アップデートの確認をおすすめします！",
+        "You are about to make the following changes to your project": "プロジェクトに次の変更を加えようとしています",
+        "Packages with potential conflicts": "競合の可能性があるパッケージ",
+        "Changing packages to conflicting versions might cause issues": "競合するバージョンへパッケージを変更すると、問題が発生する可能性があります",
+        "Downgrading a package might lead to undesired results": "パッケージをダウングレードすると、予期しない結果になる可能性があります",
+        "Major version upgrades might impact other packages": "メジャーバージョンのアップグレードは、ほかのパッケージに影響する可能性があります",
+        "This package version does not define which Unity version it supports. It may not work with your project": "このバージョンのパッケージは、対応するUnityバージョンを定義していません。プロジェクトで動作しない可能性があります",
+        "This package version was made for": "このバージョンのパッケージは",
+        ", while your project is using": "向けですが、このプロジェクトでは",
+        ". This will most likely work, but we recommend checking for updates": "を使用しています。おそらく動作しますが、アップデートの確認をおすすめします",
+        "UdonSharp and ClientSim are now included in the Worlds SDK": "UdonSharpとClientSimはWorlds SDKに含まれるようになりました",
+        "Confirm Project Changes": "プロジェクトの変更を確認",
+        "Detailed View": "詳細表示",
+        "Package Name": "パッケージ名",
+        "Old Version": "変更前のバージョン",
+        "New Version": "変更後のバージョン",
+        "Package Requirement": "パッケージの要件",
+        "Project Upgrade Required": "プロジェクトのアップグレードが必要です",
+        "You are trying to add a package that requires": "追加しようとしているパッケージには",
+        ", but your project is using": "が必要ですが、このプロジェクトのバージョンは",
+        "This will require you to upgrade your project to": "このパッケージを追加するには、先にプロジェクトを",
+        "or newer before you can add this package.": "以降にアップグレードする必要があります。",
+        "The Creator Companion can automatically migrate your project to": "Creator Companionはプロジェクトを自動で",
+        "which will make it compatible with this package. Click the button below to proceed.": "に移行し、このパッケージと互換性のある状態にできます。続行するには下のボタンをクリックしてください。",
+        "You will have a chance to review the changes before applying them": "変更を適用する前に内容を確認できます",
+        "Open Project Upgrade Window": "プロジェクトのアップグレード画面を開く",
+        "Packages not found in available listings": "利用可能なリスティングに見つからないパッケージ",
+        "Packages that can be installed": "インストールできるパッケージ",
+        "You are about to reinstall all of the packages in your project.": "プロジェクト内のすべてのパッケージを再インストールしようとしています。",
+        "Your project is currently open in the Unity Editor": "プロジェクトがUnityエディターで開かれています",
+        "Please close it before proceeding.": "続行する前に閉じてください。",
+        "Make sure your project is not open in the Unity Editor before proceeding.": "続行する前に、プロジェクトがUnityエディターで開かれていないことを確認してください。",
+        "You need to close Unity Editor before reinstalling packages": "パッケージを再インストールする前にUnityエディターを閉じてください",
+        "Project Resolve Needed": "プロジェクトの解決が必要です",
+        "The project has unresolved dependencies. That means that packages that are meant to be installed are not present in the Packages folder.": "プロジェクトに未解決の依存関係があります。インストールされているはずのパッケージがPackagesフォルダーにありません。",
+        "To resolve the project, press the \"Resolve\" button below. You can also choose to ignore this warning for this session.": "解決するには、下の「解決」ボタンを押してください。このセッションの間だけ、この警告を無視することもできます。",
+        "Ignore for this session": "このセッションでは無視",
+        "Resolve": "解決",
+        "Resolving": "解決中",
+        "Packages Missing": "パッケージが見つかりません",
+        "Some of the added packages are using pre-release versions. However, your Creator Companion is not configured to show pre-release versions.": "追加されたパッケージの一部はプレリリース版ですが、Creator Companionはプレリリース版を表示しない設定になっています。",
+        "You can still download packages that are available, but the project might not work as expected.": "利用可能なパッケージはダウンロードできますが、プロジェクトが正しく動作しない可能性があります。",
+        "You cannot reinstall packages if some of the packages are not available for download. You should add the relevant listings to the Creator Companion in the": "ダウンロードできないパッケージがあるため、再インストールできません。必要なリスティングをCreator Companionに追加してください。追加する場所:",
+        "None of the packages are available for download. You should add the relevant listings to the Creator Companion in the": "ダウンロードできるパッケージがありません。必要なリスティングをCreator Companionに追加してください。追加する場所:",
+        "This will temporarily enable pre-release packages for this resolve and attempt to load the packages": "今回の解決に限りプレリリースパッケージを有効にして、パッケージの読み込みを試みます",
+        "Enable pre-release and try again": "プレリリースを有効にして再試行",
+        "Ignore missing packages and attempt to resolve the packages that were found": "見つからないパッケージを無視し、見つかったパッケージだけを解決します",
+        "Resolve available packages": "利用可能なパッケージを解決",
+        "This will remove unavailable packages from your project's manifest.": "利用できないパッケージを、プロジェクトのマニフェストから削除します。",
+        "Please note that you will need to manually re-install them if you want to use them in the future.": "今後それらを使う場合は、手動で再インストールする必要があります。",
+        "Remove unavailable packages": "利用できないパッケージを削除",
+        "Checking Package Availability": "パッケージを利用できるか確認中",
+        "Packages are being added to the project": "プロジェクトにパッケージを追加しています",
+        "Removing unavailable packages": "利用できないパッケージを削除しています"
+      },
+      "patterns": [
+        [
+          "^Failed to load project manifest\\. (.*)$",
+          "プロジェクトのマニフェストを読み込めませんでした。$1"
+        ],
+        [
+          "^VRChat has upgraded to Unity (\\S+)\\. Upgrade your project to use all the latest features\\.?$",
+          "VRChatはUnity $1にアップグレードしました。最新の機能をすべて使うには、プロジェクトをアップグレードしてください。"
+        ],
+        [
+          "^Upgrade to (.+)$",
+          "$1にアップグレード"
+        ],
+        [
+          "^Show All Packages \\((\\d+)\\)$",
+          "すべてのパッケージを表示（$1）"
+        ],
+        [
+          "^Failed to find package info for package id (.*)$",
+          "パッケージID $1の情報が見つかりませんでした"
+        ],
+        [
+          "^Failed to add package: (.*)$",
+          "パッケージを追加できませんでした: $1"
+        ],
+        [
+          "^Failed to remove package: (.*)$",
+          "パッケージを削除できませんでした: $1"
+        ],
+        [
+          "^Failed to check if project can be resolved: (.*)$",
+          "プロジェクトを解決できるか確認できませんでした: $1"
+        ],
+        [
+          "^Failed to resolve packages: (.*)$",
+          "パッケージを解決できませんでした: $1"
+        ],
+        [
+          "^Failed to clean up packages: (.*)$",
+          "パッケージを整理できませんでした: $1"
+        ],
+        [
+          "^Failed to get latest compatible version for package (.+): (.*)$",
+          "パッケージ$1の互換性のある最新バージョンを取得できませんでした: $2"
+        ],
+        [
+          "^Failed to check for package changes: (.*)$",
+          "パッケージの変更内容を確認できませんでした: $1"
+        ]
+      ]
+    },
+    {
+      "name": "移行・アップグレード",
+      "exact": {
+        "We detected Unity 2022 SDK Packages in a Unity 2019 Project. You should try to migrate this project": "Unity 2019のプロジェクトでUnity 2022用のSDKパッケージが見つかりました。このプロジェクトを移行してください",
+        "Migrate project": "プロジェクトを移行",
+        "Git Packages Detected": "Gitパッケージを検出しました",
+        "This project is using Git packages, which have been phased out as of today. Please migrate your project to use the new VCC package management.": "このプロジェクトは、現在は廃止されたGitパッケージを使用しています。新しいVCCのパッケージ管理を使うよう、プロジェクトを移行してください。",
+        "You will be returned to the projects list": "プロジェクト一覧に戻ります",
+        "Do not migrate": "移行しない",
+        "Legacy SDK Detected": "旧形式のSDKを検出しました",
+        "This project is using a legacy VRChat SDK. Use the buttons below to migrate it to the VCC-compatible format.": "このプロジェクトは旧形式のVRChat SDKを使用しています。下のボタンからVCCに対応した形式へ移行してください。",
+        "This will remove the Legacy SDKs from your Assets folder, as well as any Curated packages that support migration, and replace them with Embedded VCC-Compatible packages and put them into the Packages folder.": "Assetsフォルダーから旧形式のSDKと、移行に対応したキュレーテッドパッケージを削除し、VCC対応の埋め込みパッケージに置き換えてPackagesフォルダーに配置します。",
+        "Migrate a Copy": "コピーを移行",
+        "Start Project Migration?": "プロジェクトの移行を開始しますか？",
+        "WILL NOT": "変更されません",
+        "NOT": "コピーを作成しません",
+        "the original project": "元のプロジェクト",
+        "Are you ready to migrate?": "移行を開始してよろしいですか？",
+        "Yes, migrate now": "はい、今すぐ移行します",
+        "This option is suitable for people who already have a backup or version control in place": "バックアップやバージョン管理をすでに用意している方向けのオプションです",
+        "Migrate in-place (you have a backup)": "その場で移行（バックアップがある場合）",
+        "I understand the risks, migrate": "リスクを理解したうえで移行する",
+        "You should only use this option if you're using version control or have made a backup yourself.": "このオプションは、バージョン管理を使っているか、自分でバックアップを作成してある場合にのみ使ってください。",
+        "Opens VCC Documentation": "VCCのドキュメントを開きます",
+        "Opens Migration Documentation": "移行に関するドキュメントを開きます",
+        "Migration not finalized": "移行が完了していません",
+        "Project migrated but failed to finalize": "プロジェクトは移行されましたが、最終処理に失敗しました",
+        "Migration Failed": "移行に失敗しました",
+        "Check logs for more details": "詳しくはログを確認してください",
+        "View Logs": "ログを表示",
+        "Starting project migration...": "プロジェクトの移行を開始しています...",
+        "Migration aborted": "移行を中止しました",
+        "Abort Migration": "移行を中止",
+        "Aborting...": "中止しています...",
+        "Backing up the project...": "プロジェクトをバックアップしています...",
+        "Supported versions": "サポートされているバージョン",
+        "Other versions": "その他のバージョン",
+        "Needs Download": "要ダウンロード",
+        "No other versions installed": "ほかのバージョンはインストールされていません",
+        "Add Unity Version": "Unityバージョンを追加",
+        "This version change is not officially supported by VRChat": "このバージョン変更はVRChatの公式サポート対象外です",
+        "Currently used Unity Version is not installed. You can install it here": "現在使用中のUnityバージョンがインストールされていません。ここからインストールできます",
+        "Changing Versions is not supported for Legacy Projects.": "旧形式のプロジェクトではバージョンを変更できません。",
+        "Please Upgrade your SDK first": "先にSDKをアップグレードしてください",
+        "Show all installed Unity Versions": "インストール済みのUnityバージョンをすべて表示",
+        "Change Unsupported": "変更できません",
+        "Upgrading": "アップグレード中:",
+        "You are about to migrate a Project using": "プロジェクトを移行しようとしています:",
+        "This process will do the following:": "この処理では次のことを行います:",
+        "Upgrade the VRChat SDK to version 3.5.0 or newer": "VRChat SDKをバージョン3.5.0以降にアップグレード",
+        "Remove outdated Unity XR Packages": "古いUnity XRパッケージを削除",
+        "We highly recommend migrating a Copy of your project, unless you're using backups or some sort of Version Control": "バックアップやバージョン管理を使っていない場合は、プロジェクトのコピーを移行することを強くおすすめします",
+        "• This will ": "• ",
+        " project and migrate it.": "し、そちらを移行します。",
+        "• This original project ": "• 元のプロジェクトは",
+        " be touched.": "。",
+        " make a copy!": "！",
+        "• This will migrate ": "• ",
+        " directly!": "を直接移行します！"
+      },
+      "patterns": [
+        [
+          "^VCC will make a new (.+)-Migrated project beside the original one\\. The original will be left intact\\.$",
+          "VCCは元のプロジェクトと同じ場所に、新しいプロジェクト「$1-Migrated」を作成します。元のプロジェクトはそのまま残ります。"
+        ],
+        [
+          "^make a new (.+)-Migrated$",
+          "新しいプロジェクト「$1-Migrated」を作成"
+        ],
+        [
+          "^Migrating (.+)$",
+          "$1を移行中"
+        ],
+        [
+          "^Backing up (.+)$",
+          "$1をバックアップ中"
+        ],
+        [
+          "^Failed to migrate project: (.*)$",
+          "プロジェクトを移行できませんでした: $1"
+        ],
+        [
+          "^Install (\\d.+)$",
+          "$1をインストール"
+        ],
+        [
+          "^Open with (.+)$",
+          "$1で開く"
+        ],
+        [
+          "^Migrate to (.+)$",
+          "$1に移行"
+        ],
+        [
+          "^Change to (.+)$",
+          "$1に変更"
+        ]
+      ]
+    },
+    {
+      "name": "設定: 一般",
+      "exact": {
+        "General": "一般",
+        "Appearance": "外観",
+        "Unity Editors": "Unityエディター",
+        "This dropdown lists all the Unity Editors found on your system which can make new VRChat projects.": "このドロップダウンには、このコンピューターで見つかった、新しいVRChatプロジェクトを作成できるUnityエディターが表示されます。",
+        "Choose the one you prefer for every major Unity release to use from the dropdown, or browse to the location of the unity application using the folder button.": "Unityのメジャーリリースごとに使うエディターをドロップダウンから選ぶか、フォルダーボタンでUnityアプリケーションの場所を指定してください。",
+        "Selected editor is not recommended.": "選択中のエディターは推奨バージョンではありません。",
+        "No Recommended Version set.": "推奨バージョンが設定されていません。",
+        "VRChat recommends using Unity": "VRChatの推奨バージョン: Unity",
+        "Select Recommended": "推奨バージョンを選択",
+        "No Unity Editors Found": "Unityエディターが見つかりません",
+        "You need a Unity Editor to be able to launch projects via the VCC": "VCCからプロジェクトを開くにはUnityエディターが必要です",
+        "Major Version": "メジャーバージョン",
+        "Selected Editor": "選択中のエディター",
+        "Loading Editors...": "エディターを読み込み中...",
+        "No Editors Selected": "エディターが選択されていません",
+        "Refresh Editor List": "エディター一覧を更新",
+        "Add new Editor": "エディターを追加",
+        "View all installed Versions": "インストール済みの一覧",
+        "All installed Unity Versions": "インストール済みのUnityバージョン",
+        "Versions marked with": "",
+        "are supported by VRChat": "が付いたバージョンはVRChatでサポートされています",
+        "To change the Editor path, remove it and add it again": "エディターのパスを変更するには、いったん削除してから追加し直してください",
+        "Remove Version": "バージョンを削除",
+        "Supported": "サポート対象",
+        "Other": "その他",
+        "Invalid version format": "バージョンの形式が正しくありません",
+        "Version already exists": "このバージョンはすでに登録されています",
+        "Editor Added": "エディターを追加しました",
+        "Failed to add Editor": "エディターを追加できませんでした",
+        "Add Unity Editor": "Unityエディターを追加",
+        "Editor Version": "エディターのバージョン",
+        "Location": "場所",
+        "Path to Unity Editor executable": "Unityエディターの実行ファイルのパス",
+        "Pick Unity Editor": "Unityエディターを選択",
+        "Beta": "ベータ",
+        "Beta Builds use their own settings, but you can copy them from the main Creator Companion installation using the button below": "ベータ版は独自の設定を使います。下のボタンで、通常版のCreator Companionから設定をコピーできます",
+        "This will": "",
+        "overwrite": "上書き:",
+        "your": "",
+        "settings with your": "版の設定を",
+        "Main": "通常",
+        "settings and data": "版の設定とデータで置き換えます",
+        "delete": "削除:",
+        "all your": "すべての",
+        "settings and data, starting from scratch": "版の設定とデータを削除し、最初からやり直します",
+        "Copy Live Settings and Data": "通常版の設定とデータをコピー",
+        "Delete Beta Settings and Data": "ベータ版の設定とデータを削除",
+        "Files and Folders": "ファイルとフォルダー",
+        "These files and folders are in fixed locations for now. Click the buttons below to open them": "これらのファイルとフォルダーの場所は現在固定されています。下のボタンから開けます",
+        "Backups": "バックアップ",
+        "Project backups are saved to this folder.": "プロジェクトのバックアップはこのフォルダーに保存されます。",
+        "Error Reporting Settings": "エラー報告の設定",
+        "This application sends error reports to help us track, diagnose and fix the issues.": "このアプリケーションは、問題の追跡・診断・修正に役立てるためにエラーレポートを送信します。",
+        "You can send additional information to make it easier to find your specific issue.": "追加の情報を送ると、あなたの環境で起きている問題を見つけやすくなります。",
+        "Include my IP and Computer Username when sending automated reports": "自動レポートにIPアドレスとコンピューターのユーザー名を含める",
+        "Community Repo Analytics": "コミュニティリポジトリの利用状況の送信",
+        "When you add a Community Repo, this app will send the url of that repo to our analytics service to help us understand how people are using community repos, which are the most popular, etc. It also sends a true/false value for whether a custom header is provided, but it does not send any of the information from the header.": "コミュニティリポジトリを追加すると、そのURLを分析サービスに送信します。コミュニティリポジトリの使われ方や人気の傾向を把握するためのものです。カスタムヘッダーを指定したかどうか（true/false）も送信しますが、ヘッダーの内容は送信しません。",
+        "You can turn this off if you don't want to share the information.": "情報を共有したくない場合はオフにできます。",
+        "Send Community Repo Analytics": "コミュニティリポジトリの利用状況を送信する",
+        "Updates": "アップデート",
+        "Check for Updates": "アップデートを確認",
+        "Updates available! Use the button on the sidebar to update": "アップデートがあります！サイドバーのボタンから更新してください",
+        "You are running the latest version of the Creator Companion": "Creator Companionは最新バージョンです",
+        "You are using a ": "Creator Companionの",
+        " build of the Creator Companion, it is intended for testing purposes and can be unstable.": "版を使用しています。テスト用のビルドのため、動作が不安定な場合があります。"
+      },
+      "patterns": [
+        [
+          "^Failed to refresh editors: (.*)$",
+          "エディター一覧を更新できませんでした: $1"
+        ],
+        [
+          "^Failed to set a new backups folder: (.*)$",
+          "バックアップの保存先を設定できませんでした: $1"
+        ],
+        [
+          "^Failed to set PII state: (.*)$",
+          "個人情報の送信設定を変更できませんでした: $1"
+        ],
+        [
+          "^Failed to set Track Community Repos state: (.*)$",
+          "コミュニティリポジトリの利用状況の送信設定を変更できませんでした: $1"
+        ],
+        [
+          "^Failed to copy settings and data: (.*)$",
+          "設定とデータをコピーできませんでした: $1"
+        ],
+        [
+          "^Failed to clear settings and data: (.*)$",
+          "設定とデータを削除できませんでした: $1"
+        ]
+      ]
+    },
+    {
+      "name": "設定: パッケージ",
+      "exact": {
+        "Repository Listing URL": "リポジトリのリスティングURL",
+        "Link to the repository JSON file. E.g. https://vrchat.github.io/myRepo/index.json": "リポジトリのJSONファイルへのリンク（例: https://vrchat.github.io/myRepo/index.json）",
+        "Advanced Options": "詳細オプション",
+        "Request Headers": "リクエストヘッダー",
+        "Header Name": "ヘッダー名",
+        "Header Value": "ヘッダーの値",
+        "Remove Header": "ヘッダーを削除",
+        "Add New Header": "ヘッダーを追加",
+        "Check out the": "詳しくは",
+        "documentation": "ドキュメント",
+        "for more information.": "をご覧ください。",
+        "Add Repository": "リポジトリを追加",
+        "Author": "作者",
+        "Id": "ID",
+        "Url": "URL",
+        "Included Packages": "含まれるパッケージ",
+        "You will need to enable the \"Show Pre-Release Packages\" option to see this package": "このパッケージを表示するには「プレリリースパッケージを表示」を有効にしてください",
+        "Community Repositories Disclaimer": "コミュニティリポジトリに関する免責事項",
+        "WARNING: Download at your own risk! Community Packages made available through third-party sites may contain malware. VRChat makes no representation, warranty, or guarantee with respect to Community Packages and disclaims any liability arising out of or related to Community Packages.": "警告:ダウンロードは自己責任で行ってください！サードパーティのサイトで提供されるコミュニティパッケージには、マルウェアが含まれている可能性があります。VRChatはコミュニティパッケージについて一切の表明・保証をせず、コミュニティパッケージに起因または関連するいかなる責任も負いません。",
+        "I Understand, Add Repository": "理解しました。リポジトリを追加します",
+        "You have already added this repository. You can't add it again.": "このリポジトリはすでに追加されています。もう一度追加することはできません。",
+        "You have already added this repository but it was disabled. Repository has been enabled.": "このリポジトリは追加済みで、無効になっていました。有効にしました。",
+        "Remove repository": "リポジトリを削除",
+        "Installed Repositories": "インストール済みのリポジトリ",
+        "The Creator Companion includes VRChat's official and curated repositories by default. You can add your own community repositories by clicking 'Add Repository'.": "Creator Companionには、VRChatの公式（Official）リポジトリとキュレーテッド（Curated）リポジトリが最初から含まれています。「リポジトリを追加」から、コミュニティリポジトリを追加できます。",
+        "Toggle Repository": "リポジトリの有効／無効を切り替え",
+        "VRChat and Community": "VRChatとコミュニティ",
+        "Pre-Release Packages": "プレリリースパッケージ",
+        "VRChat sometimes provides pre-release packages for testing new features. These often go alongside an open beta.": "VRChatは、新機能のテスト用にプレリリースパッケージを提供することがあります。多くはオープンベータと合わせて提供されます。",
+        "By default these packages are hidden in the versions list. But you can enable them here.": "これらのパッケージは通常バージョン一覧に表示されませんが、ここで表示するように設定できます。",
+        "Show Pre-Release Packages": "プレリリースパッケージを表示",
+        "User Packages": "ユーザーパッケージ",
+        "Add your own packages to this list to easily include them in your projects": "自作のパッケージをこの一覧に追加すると、プロジェクトに簡単に組み込めます",
+        "Add a new Package": "パッケージを追加"
+      },
+      "patterns": [
+        [
+          "^(.+) \\(pre-release\\)$",
+          "$1（プレリリース）"
+        ],
+        [
+          "^Failed to add a new user package: (.*)$",
+          "ユーザーパッケージを追加できませんでした: $1"
+        ],
+        [
+          "^Failed to add a user package: (.*)$",
+          "ユーザーパッケージを追加できませんでした: $1"
+        ],
+        [
+          "^Failed to remove a user package: (.*)$",
+          "ユーザーパッケージを削除できませんでした: $1"
+        ],
+        [
+          "^Failed to set Show Pre Release Packages state: (.*)$",
+          "プレリリースパッケージの表示設定を変更できませんでした: $1"
+        ]
+      ]
+    },
+    {
+      "name": "設定: 外観・開発者向け",
+      "exact": {
+        "UI Theme": "UIテーマ",
+        "System": "システム",
+        "Will follow your system theme setting": "システムのテーマ設定に合わせます",
+        "Dark": "ダーク",
+        "Light": "ライト",
+        "Cool Mode 😎": "開発者モード😎",
+        "Hey you, you're cool": "開発者向けの設定です",
+        "Log Spam": "ログの大量出力",
+        "Spam logs every 500ms": "500ミリ秒ごとにログを出力",
+        "Useful Buttons": "便利なボタン",
+        "Disable Cool Mode": "開発者モードを無効化",
+        "Clear All Caches": "すべてのキャッシュを削除",
+        "Open VCC Folder": "VCCのフォルダーを開く",
+        "Onboarding": "初期設定ガイド",
+        "Open Onboarding": "初期設定ガイドを開く",
+        "Onboarding Completed": "初期設定ガイド完了済み",
+        "Danger zone": "危険な操作",
+        "Ignore Unity 2022 Compatibility Check": "Unity 2022の互換性チェックを無視",
+        "Clear Settings File": "設定ファイルを削除",
+        "Note, this will completely remove your settings.json file and replace it with a new one. You will need to re-add all the projects, local packages and custom repos again": "settings.jsonを完全に削除し、新しいファイルに置き換えます。プロジェクト、ローカルパッケージ、カスタムリポジトリはすべて追加し直す必要があります",
+        "Build Info": "ビルド情報"
+      },
+      "patterns": []
+    },
+    {
+      "name": "ログ",
+      "exact": {
+        "Copy Logs": "ログをコピー",
+        "Search Logs": "ログを検索",
+        "Toggle auto scroll": "自動スクロールの切り替え"
+      },
+      "patterns": []
+    },
+    {
+      "name": "初期設定ガイド",
+      "exact": {
+        "Welcome to the Creator Companion": "Creator Companionへようこそ",
+        "The VRChat Creator Companion, or VCC for short, is your gateway to VRChat World & Avatar Creation.": "VRChat Creator Companion（略してVCC）は、VRChatのワールドやアバター制作の入り口です。",
+        "Show Me Around": "使い方を見る",
+        "Help VRChat improve the Creator Companion by including your IP address with crash reports": "クラッシュレポートにIPアドレスを含めて、Creator Companionの改善に協力する",
+        "This is the Main Sidebar": "これがメインのサイドバーです",
+        "You can access all of the Creator Companion's features through it": "ここからCreator Companionのすべての機能を使えます",
+        "Learn more about the Creator Companion in our Documentation": "Creator Companionについて詳しくはドキュメントをご覧ください",
+        "Unity Installation": "Unityのインストール",
+        "To create content for VRChat, you will need the Unity Editor": "VRChat向けのコンテンツを作るにはUnityエディターが必要です",
+        "To create content for VRChat you need a Unity Editor": "VRChat向けのコンテンツを作るにはUnityエディターが必要です",
+        "Install Unity": "Unityをインストール",
+        "I already have Unity": "Unityはインストール済み",
+        "Install Later": "あとでインストール",
+        "Are you sure?": "よろしいですか？",
+        "Skipping Unity install is not recommended.": "Unityのインストールをスキップすることはおすすめしません。",
+        "This will prevent the VCC from opening your projects. You will need to install Unity to enable that functionality.": "VCCからプロジェクトを開けなくなります。プロジェクトを開くにはUnityのインストールが必要です。",
+        "Back to Unity Install": "Unityのインストールに戻る",
+        "Skip Unity Install": "Unityのインストールをスキップ",
+        "Open the file picker to select the Unity.exe for the Creator Companion to use": "ファイルの選択画面を開き、Creator Companionで使うUnity.exeを選びます",
+        "Not recommended for new users.": "初めての方にはおすすめしません。",
+        "Skip the Unity installation for now. You can add Unity later in the Settings": "今はUnityのインストールをスキップします。Unityはあとから設定で追加できます",
+        "Unity Hub Installation": "Unity Hubのインストール",
+        "First, you'll need to install the Unity Hub": "まずUnity Hubをインストールする必要があります",
+        "Download the Unity Hub from Unity's website": "UnityのWebサイトからUnity Hubをダウンロード",
+        "Install the Unity Hub": "Unity Hubをインストール",
+        "Open the Unity Hub": "Unity Hubを開く",
+        "Activate your Unity license": "Unityのライセンスを有効化",
+        "Check out this help article if you have any trouble": "うまくいかない場合は、こちらのヘルプ記事をご覧ください",
+        "Check out the help article if you have any trouble": "うまくいかない場合は、ヘルプ記事をご覧ください",
+        "Click the button below when you're done": "完了したら下のボタンをクリックしてください",
+        "I have installed the Unity Hub": "Unity Hubをインストールしました",
+        "Select Unity Hub Manually": "Unity Hubを手動で選択",
+        "Having Trouble? Try Manual Install": "うまくいかない場合は手動でインストール",
+        "This might take some time.": "しばらく時間がかかる場合があります。",
+        "VCC failed to install the Unity Editor": "VCCはUnityエディターをインストールできませんでした",
+        "Install Error:": "インストールエラー:",
+        "VCC will try to download and install Unity again": "VCCがUnityのダウンロードとインストールを再試行します",
+        "VCC will guide you through a manual installation process": "VCCが手動インストールの手順を案内します",
+        "Install Manually": "手動でインストール",
+        "This will install the Unity Editor into the default editors directory as set in your Unity Hub": "Unity Hubで設定されている既定のフォルダーにUnityエディターをインストールします",
+        "Everything is Ready": "準備が整いました",
+        "You can now start using the Creator Companion!": "Creator Companionを使い始められます！",
+        "If you want to add or create a project right away, use the buttons below:": "すぐにプロジェクトを追加または作成する場合は、下のボタンを使ってください:",
+        "Open the Creator Companion": "Creator Companionを開く",
+        "Scanning for installed Unity Editors...": "インストール済みのUnityエディターを探しています...",
+        "Unity Editor found. Ready!": "Unityエディターが見つかりました。準備完了です！",
+        "Unity Editor not found": "Unityエディターが見つかりません",
+        "Unity Editor Check": "Unityエディターの確認",
+        "Manually install the Unity Editor": "Unityエディターを手動でインストール",
+        "Click this link to start installation in Unity Hub": "このリンクをクリックして、Unity Hubでインストールを開始",
+        "Select 'Android Build Support' under 'Platforms'": "「Platforms」で「Android Build Support」を選択",
+        "Click 'Install'": "「Install」をクリック",
+        "I have installed the Unity Editor": "Unityエディターをインストールしました",
+        "Unity Hub was not found, please make sure you followed the instructions above": "Unity Hubが見つかりませんでした。上の手順どおりに操作したか確認してください",
+        "Can't load the changeset for the Unity Version. The VCC will be unable to install it": "このUnityバージョンのチェンジセットを読み込めません。VCCからはインストールできません",
+        "Changeset not found. The Creator Companion will be unable to install this Unity Version. You can still install it from the Unity Download Archive website or manually via the Unity Hub.": "チェンジセットが見つかりません。Creator CompanionからはこのUnityバージョンをインストールできません。Unity Download ArchiveのWebサイトから、またはUnity Hubで手動でインストールしてください。",
+        "Failed to start Unity install": "Unityのインストールを開始できませんでした",
+        "No Unity Editors found": "Unityエディターが見つかりませんでした",
+        "If you have any questions about the Creator Companion or creating VRChat content, check out the ": "Creator CompanionやVRChatのコンテンツ制作について知りたいことがあれば、",
+        " page.": "ページをご覧ください。"
+      },
+      "patterns": [
+        [
+          "^VCC is downloading Unity (.+)$",
+          "VCCがUnity $1をダウンロードしています"
+        ],
+        [
+          "^VCC is installing Unity (.+)$",
+          "VCCがUnity $1をインストールしています"
+        ],
+        [
+          "^Unity (.+) has been installed!$",
+          "Unity $1をインストールしました！"
+        ],
+        [
+          "^VCC is now ready to install Unity(.*)$",
+          "VCCでUnity$1をインストールする準備ができました"
+        ],
+        [
+          "^(.+) - Version used by VRChat$",
+          "$1 - VRChatが使用しているバージョン"
+        ],
+        [
+          "^Install Unity (.+)$",
+          "Unity $1をインストール"
+        ],
+        [
+          "^Unity (.+) not found, please try again$",
+          "Unity $1が見つかりません。もう一度お試しください"
+        ],
+        [
+          "^Set preferred Unity Editor: (.*)$",
+          "優先するUnityエディターを設定しました: $1"
+        ],
+        [
+          "^Failed set preferred Unity Editor: (.*)$",
+          "優先するUnityエディターを設定できませんでした: $1"
+        ],
+        [
+          "^Failed find Unity Hub: (.*)$",
+          "Unity Hubが見つかりませんでした: $1"
+        ],
+        [
+          "^Failed to check for Unity Hub: (.*)$",
+          "Unity Hubを確認できませんでした: $1"
+        ],
+        [
+          "^Failed to set path to Unity Hub: (.*)$",
+          "Unity Hubのパスを設定できませんでした: $1"
+        ],
+        [
+          "^Failed start Unity install: (.*)$",
+          "Unityのインストールを開始できませんでした: $1"
+        ],
+        [
+          "^Failed find load Unity Editors: (.*)$",
+          "Unityエディターを読み込めませんでした: $1"
+        ]
+      ]
+    },
+    {
+      "name": "アップデート・起動エラー",
+      "exact": {
+        "Updating Creator Companion": "Creator Companionをアップデートしています",
+        "Creator Companion is ready to Update!": "Creator Companionをアップデートできます！",
+        "Current Version ": "現在のバージョン: ",
+        "New Version ": "新しいバージョン: ",
+        "See Whats New": "新機能を見る",
+        "Warning: Update may delete Projects!": "警告:アップデートでプロジェクトが削除される可能性があります！",
+        "Projects were detected in the Creator Companion's installation directory. Please move them to a different location, or they may be deleted.": "Creator Companionのインストールフォルダー内にプロジェクトが見つかりました。別の場所に移動しないと、削除される可能性があります。",
+        "List of detected projects": "見つかったプロジェクト",
+        "Getting download info...": "ダウンロード情報を取得しています...",
+        "Downloading update...": "アップデートをダウンロードしています...",
+        "Launching installer...": "インストーラーを起動しています...",
+        "Checking Projects...": "プロジェクトを確認しています...",
+        "Update Now": "今すぐアップデート",
+        "Failed to load settings": "設定を読み込めませんでした",
+        "The Creator Companion encountered an error when loading your settings file. We can save a copy of your current settings into a new file called": "設定ファイルの読み込み中にエラーが発生しました。現在の設定を",
+        "and create a new one so the VCC can proceed.": "という名前で別ファイルに保存し、新しい設定ファイルを作成してVCCを起動できます。",
+        "Creator Companion Logs": "Creator Companionのログ",
+        "Back Up and Launch": "バックアップして起動",
+        "Open Settings Folder": "設定フォルダーを開く"
+      },
+      "patterns": [
+        [
+          "^Failed to create a backup of the settings file: (.*)$",
+          "設定ファイルのバックアップを作成できませんでした: $1"
+        ],
+        [
+          "^Failed to create a new settings file: (.*)$",
+          "新しい設定ファイルを作成できませんでした: $1"
+        ]
+      ]
+    }
+  ]
+}

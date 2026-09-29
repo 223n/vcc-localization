@@ -1,0 +1,18 @@
+/*
+ * VCC日本語化パッチ：日本語にしたことで崩れるレイアウトの補正
+ * Copyright (c) 2026 223n <223n@223n.tech>
+ * SPDX-License-Identifier: MIT
+ *
+ * vcc-ja.ps1がindex.htmlに埋め込む。日本語（ASCII以外）はコメントにだけ書くこと。
+ * VCCの更新でクラス名が変わった場合は、補正が効かなくなるだけで表示は壊れない。
+ */
+
+/* サイドバーを少し広げて「プロジェクト」を1行に収める（元は150px） */
+:root .css-1rxguid {
+  width: 166px;
+}
+
+/* 翻訳した見出しは折り返さない。プロジェクト名など、翻訳していない見出しは対象外 */
+.fui-Title1[data-vccja] {
+  white-space: nowrap;
+}
