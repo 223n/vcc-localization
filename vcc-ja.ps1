@@ -50,12 +50,13 @@ function Find-Vcc {
             $path = Join-Path $env:LOCALAPPDATA 'Programs\VRChat Creator Companion'
         }
     }
-    $index = Join-Path $path 'WebApp\Dist\index.html'
+    # 区切りは/で書く。WindowsとLinux（CIのテスト）の両方で通るため
+    $index = Join-Path $path 'WebApp/Dist/index.html'
     if (-not (Test-Path -LiteralPath $index)) {
         throw "VCCが見つかりません: $index`n-VccPathでインストール先を指定してください。"
     }
     [pscustomobject]@{
-        Path   = $path.TrimEnd('\')
+        Path   = $path.TrimEnd('\', '/')
         Index  = $index
         Backup = "$index.vcc-ja.bak"
     }
@@ -70,7 +71,7 @@ function Write-Text([string]$path, [string]$text) {
 }
 
 function Get-VccVersion($vcc) {
-    $buildInfo = Join-Path $vcc.Path 'WebApp\Dist\buildInfo.json'
+    $buildInfo = Join-Path $vcc.Path 'WebApp/Dist/buildInfo.json'
     if (-not (Test-Path -LiteralPath $buildInfo)) { return '不明' }
     $match = [regex]::Match((Read-Text $buildInfo), '"Major":(\d+),"Minor":(\d+),"Patch":(\d+)')
     if (-not $match.Success) { return '不明' }
@@ -120,11 +121,11 @@ function ConvertTo-AsciiScript([string]$text) {
 }
 
 function New-Injection {
-    $dictPath = Join-Path $PSScriptRoot 'locales\ja.json'
+    $dictPath = Join-Path $PSScriptRoot 'locales/ja.json'
     $dict = (Read-Text $dictPath).Trim()
     Test-JsonText $dict $dictPath
-    $script = ConvertTo-AsciiScript ("window.__VCCJA_DICT__ = $dict;`n" + (Read-Text (Join-Path $PSScriptRoot 'src\translator.js')))
-    $style = ConvertTo-AsciiScript (Read-Text (Join-Path $PSScriptRoot 'src\style.css'))
+    $script = ConvertTo-AsciiScript ("window.__VCCJA_DICT__ = $dict;`n" + (Read-Text (Join-Path $PSScriptRoot 'src/translator.js')))
+    $style = ConvertTo-AsciiScript (Read-Text (Join-Path $PSScriptRoot 'src/style.css'))
     $script = $script.Replace('</', '<\/')
     # VCCはサーバー側で{{API_URL}}を置換するので、同じ記法を含めない
     foreach ($part in $script, $style) {

@@ -30,6 +30,7 @@ VCC本体のプログラムとJSには手を加えません。
 
 ### 3.1. インストール
 
+1. [リリースの一覧](https://github.com/223n/vcc-localization/releases)から、最新版の「Source code (zip)」を取得して展開します。
 1. VCCを終了します。
 1. `install.cmd`をダブルクリックします。
 1. VCCを起動します。
@@ -72,10 +73,32 @@ VCCのJSバンドルは変更しません。
 
 ### 5.1. 必要なもの
 
-- Node.js 22.9以降（開発用ツールで使います。インストールには不要です）
-- PowerShell 5.1以降
+- Node.js 24以降（開発用ツールと検査で使います。インストールには不要です）
+- PowerShell 7以降（`npm test`で使います）
+- Windows PowerShell 5.1（`install.cmd`が使います。Windowsに最初から入っています）
 
-### 5.2. 辞書の編集
+最初に依存を入れます。
+
+```powershell
+npm install
+```
+
+### 5.2. 検査
+
+```powershell
+npm run lint
+npm test
+```
+
+- `npm run lint`: 日本語の文書を`markdownlint`と`textlint`で検査します。
+- `npm test`: スクリプトの構文、辞書の形、インストーラーの埋め込みと取り外しを検査します。
+
+`npm test`は、偽のVCCフォルダーを一時的に作って動かします。
+本物のVCCには触りません。
+Pull Requestでは、CIが同じ検査に加えて、ワークフローも検査します。
+CodeQLは、ワークフローとJavaScriptを走査します。
+
+### 5.3. 辞書の編集
 
 `locales/ja.json`の`sections`に、画面ごとの訳を書きます。
 
@@ -86,10 +109,10 @@ VCCのJSバンドルは変更しません。
 訳文の端が全角の場合、原文の前後にあった空白は取り除きます。
 全角と半角の間に空白を入れない表記に合わせるためです。
 
-### 5.3. VCCに書き込まずに確認する
+### 5.4. VCCへ書き込まずに確認する
 
 ```powershell
-node --env-file-if-exists=.env tools/dev-server.mjs
+npm run dev
 ```
 
 ブラウザーで<http://localhost:5480/>を開くと、日本語化した画面を確認できます。
@@ -105,18 +128,32 @@ VCCのAPIへは読み取りの要求だけを中継し、設定の変更など�
 await eval(await (await fetch('/__vccja/selftest.js')).text())
 ```
 
-### 5.4. VCCを更新したときの確認
+### 5.5. VCCを更新したときの確認
 
 ```powershell
-node tools/check-coverage.mjs
+npm run coverage
 ```
 
 辞書にない画面の文字列と、VCCから消えた辞書のキーを一覧にします。
-文字列の候補をすべて見る場合は、次を実行します。
+文字列の候補をすべて見る場合は、`npm run extract`を実行します。
+結果は`work/strings.json`に出ます。
 
-```powershell
-node tools/extract-strings.mjs --out work/strings.json
-```
+### 5.6. 開発の流れ
+
+GitFlowに沿って運用します。
+`develop`から`feature/変更の名前`ブランチを切り、`develop`へのPull Requestをマージコミットでマージします。
+ブランチの役割とPull Requestの決まりは[CONTRIBUTING.md](CONTRIBUTING.md)にあります。
+
+リリースは次の手順で行います。
+
+1. Actionsの「リリース」を開き、「Run workflow」を選びます。
+1. `version`にリリースする版を入れます。`v`は付けません（例: `0.1.0`）。
+1. ワークフローが`release/vX.Y.Z`ブランチを切り、`main`へのPull Requestを開きます。
+1. Pull Requestの内容を確かめ、マージコミットでマージします。
+1. 「リリースを公開する」ワークフローがタグとGitHub Releaseを作ります。
+
+版は`package.json`の`version`で管理します。
+公開のあと、ワークフローは`main`を`develop`に戻します。
 
 ## 6. ファイル構成
 
@@ -125,14 +162,19 @@ node tools/extract-strings.mjs --out work/strings.json
 - `locales/ja.json`: 翻訳の辞書
 - `src/translator.js`: 実行時に画面を翻訳するスクリプト
 - `src/style.css`: 日本語にしたことで崩れるレイアウトの補正
-- `tools/dev-server.mjs`: VCCに書き込まずに確認するためのサーバー
-- `tools/selftest.js`: 翻訳スクリプトの動作確認
+- `tools/dev-server.mjs`: VCCへ書き込まずに確認するためのサーバー
+- `tools/selftest.js`: 翻訳スクリプトの動作確認（ブラウザーで実行）
+- `tools/test.mjs`、`tools/fixtures/`: `npm test`の検査と、そこで使うファイル
 - `tools/check-coverage.mjs`: 辞書の網羅状況の確認
 - `tools/extract-strings.mjs`: VCCのJSから画面の文字列の候補を抽出
+- `.github/`: CI、CodeQL、ラベル、Issueのフォーム、Dependabot、リリース
+- `CONTRIBUTING.md`: 貢献の手引き
+- `CLAUDE.md`: Claude Codeが読む決まり
+- `SECURITY.md`: 脆弱性の報告先
 
 ## 7. ライセンス
 
 コードと日本語訳は[MITライセンス](LICENSE)で公開しています。
 `locales/ja.json`に含まれる英語の文字列は、VRChat Creator Companionから抜き出したものです。
-権利はVRChat Inc.に帰属し、MITライセンスの対象外です。
+権利はVRChat社に帰属し、MITライセンスの対象外です。
 詳しくは[NOTICE](NOTICE)を参照してください。

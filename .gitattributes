@@ -1,3 +1,18 @@
-# 改行コードをそろえる。バッチファイルはWindowsの改行コードで取り出す
-* text=auto
+# 改行コードは LF に統一する
+* text=auto eol=lf
+
+*.md text
+*.js text
+*.mjs text
+*.cjs text
+*.json text
+*.jsonc text
+*.yml text
+*.yaml text
+*.sh text
+*.ps1 text
+*.css text
+*.html text
+
+# バッチファイルは cmd.exe が確実に読めるよう、Windows の改行コードで取り出す
 *.cmd text eol=crlf

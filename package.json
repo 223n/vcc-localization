@@ -1,0 +1,26 @@
+{
+  "name": "vcc-localization",
+  "version": "0.0.0",
+  "private": true,
+  "description": "VRChat Creator Companion の画面を日本語で表示する非公式パッチ。VCC 本体には手を加えず、index.html に翻訳スクリプトを埋め込む。",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "lint": "npm run lint:md && npm run lint:ja",
+    "lint:md": "markdownlint-cli2",
+    "lint:md:fix": "markdownlint-cli2 --fix",
+    "lint:ja": "textlint .",
+    "lint:ja:fix": "textlint --fix .",
+    "test": "node tools/test.mjs",
+    "dev": "node --env-file-if-exists=.env tools/dev-server.mjs",
+    "coverage": "node tools/check-coverage.mjs",
+    "extract": "node tools/extract-strings.mjs --out work/strings.json"
+  },
+  "devDependencies": {
+    "@223n/lint-config-ja": "^2.1.1",
+    "markdownlint-cli2": "^0.23.3",
+    "textlint": "^15.8.0"
+  }
+}
