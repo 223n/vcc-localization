@@ -24,7 +24,7 @@
   color: '#d876e3'
   description: 使い方や仕様についての質問
 - name: 翻訳
-  color: #fbca04
+  color: '#fbca04'
   description: 訳の追加や修正
 - name: アクセシビリティ
   from_name: accessibility

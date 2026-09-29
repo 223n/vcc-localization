@@ -1,6 +1,7 @@
 // このプロジェクトのスクリプトを検査する（npm test）。CIでも同じものを動かす。
 // - JavaScriptの構文（node --check）
 // - 辞書（locales/ja.json）の形、正規表現、重複、訳文の空白
+// - ラベルの定義（.github/labels.yml）の色の書き方
 // - インストーラー（vcc-ja.ps1）を偽のVCCフォルダーに対して動かし、埋め込みと取り外しを確かめる
 // 本物のVCCには触らない。偽のフォルダーは一時ディレクトリに作り、最後に消す。
 import { spawnSync } from 'node:child_process';
@@ -109,6 +110,15 @@ if (dict) {
     assert(bad.length === 0, bad.join('\n'));
   });
 }
+
+// ---- ラベルの定義
+// ラベルを揃えるワークフローは色を文字列として読む。引用符を忘れると # 以降がコメントになり、色が空になって落ちる
+check('ラベル: 色を引用符付きの#RRGGBBで書いている', () => {
+  const bad = read(path.join(ROOT, '.github', 'labels.yml'))
+    .split(/\r?\n/)
+    .filter((line) => /^\s+color:/.test(line) && !/^\s+color: '#[0-9a-fA-F]{6}'$/.test(line));
+  assert(bad.length === 0, bad.join('\n'));
+});
 
 // ---- インストーラー
 function findPowerShell() {

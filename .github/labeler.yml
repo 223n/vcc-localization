@@ -11,7 +11,7 @@
 翻訳:
   - changed-files:
       - any-glob-to-any-file:
-          - locales/**
+          - 'locales/**'
 
 依存関係:
   - changed-files:
