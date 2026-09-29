@@ -1,0 +1,23 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.md]
+# Markdown は行末の空白2つが改行の意味を持つため削らない
+trim_trailing_whitespace = false
+
+[*.ps1]
+# PowerShell の慣行に合わせる
+indent_size = 4
+# Windows PowerShell 5.1 は BOM の無い UTF-8 を正しく読めないため、BOM を付ける
+charset = utf-8-bom
+
+[*.cmd]
+# cmd.exe が確実に読めるよう、Windows の改行コードにする
+end_of_line = crlf

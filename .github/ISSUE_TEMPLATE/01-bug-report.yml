@@ -1,0 +1,93 @@
+# バグ報告のフォーム。
+# 参考: https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
+#
+# labels に書くラベルはリポジトリに無ければ付かない。.github/labels.yml で定義してある。
+# 各要素の id は ASCII で付ける。日本語の label だけだと参照名が同じになり、フォームが壊れることがある。
+# validations.required は公開リポジトリでだけ効く。
+name: バグ報告
+description: 期待どおりに動かないことや、訳の誤りを報告します
+title: '[バグ] '
+labels:
+  - バグ
+body:
+  - type: markdown
+    attributes:
+      value: |
+        報告ありがとうございます。
+        同じ内容のIssueが無いか、先に検索してください。
+        VCC本体の不具合かどうかは、`uninstall.cmd`で英語表示に戻しても起きるかで見分けられます。
+        英語表示でも起きる場合は、VRChatへ報告してください。
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 起きたこと
+      description: 何が起きたかを具体的に書いてください。訳の誤りなら、その画面と文言を書いてください。
+      placeholder: 例：設定の画面で、ボタンの文言が英語のまま表示される
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待したこと
+      description: 本来どう動くべきかを書いてください。
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現の手順
+      description: 手順を順番に書いてください。
+      value: |
+        1.
+        1.
+        1.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: パッチの版
+      description: 問題が起きたパッチの版、タグ、またはコミットです。
+      placeholder: 例：v0.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: vcc-version
+    attributes:
+      label: VCCの版
+      description: VCCの「設定」の画面の右上に出る版です。
+      placeholder: 例：2.4.5
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 環境
+      description: OSやPowerShellの版などです。
+      value: |
+        - OS:
+        - PowerShell:
+        - その他:
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: ログやエラーの出力
+      description: インストーラーの出力やエラーを、そのまま貼り付けてください。自動でコードブロックになります。
+      render: text
+
+  - type: checkboxes
+    id: precheck
+    attributes:
+      label: 確認したこと
+      options:
+        - label: 同じ内容のIssueが無いことを確かめました
+          required: true
+        - label: 最新の版でも起きることを確かめました
+        - label: 英語表示（uninstall.cmdの実行後）では起きないことを確かめました

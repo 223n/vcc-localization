@@ -220,7 +220,6 @@
   if (document.body) walk(document.body);
 
   window.__vccJa = {
-    version: dict.version,
     translate: translate,
     // 未翻訳の文字列を探すための開発用ヘルパー
     untranslated: function () {

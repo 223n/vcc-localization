@@ -1,5 +1,4 @@
 {
-  "version": "0.1.0",
   "target": "VRChat Creator Companion 2.4.5",
   "skip": ".fui-MessageBarGroup",
   "sections": [

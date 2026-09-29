@@ -1,6 +1,21 @@
-# 抽出結果や動作確認用の生成物（VCCのコード片を含むので公開しない）
+# 依存
+node_modules/
+
+# 検査やビルドの出力
+*.log
+
+# 抽出結果や動作確認用の生成物。VCC のコード片を含むので公開しない
 work/
 
-# ローカルの環境設定
-.env
+# エディタと OS
+.DS_Store
+.vscode/settings.json
+.idea/
 .claude/settings.local.json
+
+# 環境変数と認証情報。
+# npm login が作る .npmrc にはトークンが入るため、リポジトリには入れない
+.env
+.env.*
+!.env.example
+.npmrc
