@@ -1,6 +1,6 @@
 {
   "name": "vcc-localization",
-  "version": "0.0.0",
+  "version": "1.0.0-rc.1",
   "private": true,
   "description": "VRChat Creator Companion の画面を日本語で表示する非公式パッチ。VCC 本体には手を加えず、index.html に翻訳スクリプトを埋め込む。",
   "license": "MIT",
